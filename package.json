@@ -1,7 +1,6 @@
 {
   "name": "postcss-import-object",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "test": "ava"

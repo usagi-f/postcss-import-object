@@ -1,0 +1,21 @@
+{
+  "name": "postcss-import-object",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "usagi-f",
+  "license": "MIT",
+  "keywords": [
+    "postcss",
+    "postcss-plugin"
+  ],
+  "dependencies": {
+    "postcss": "^6.0.6"
+  },
+  "devDependencies": {
+    "ava": "^0.20.0"
+  }
+}

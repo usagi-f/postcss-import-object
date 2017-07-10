@@ -6,6 +6,16 @@ This makes it possible to manage variables with JavaScript when using CSS Variab
 
 For example Immutable.js makes it easier to inject external objects into the CSS.
 
+## Installation
+
+```bash
+npm install postcss-import-object --save-dev
+```
+
+```bash
+yarn add postcss-import-object --dev
+```
+
 ## Usage
 
 ```javascript

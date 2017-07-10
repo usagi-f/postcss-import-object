@@ -4,17 +4,30 @@ import test from 'ava';
 import postcss from 'postcss';
 import importObject from '..'
 
-function run(t, input, output){
-    return postcss([importObject({
-            '--primary-color': 'red',
-            '--font-family': 'Helvetica, sans'
-        })])
+function run(t, input, output, object){
+    return postcss([importObject(object)])
         .process(input)
         .then(result => {
             t.true(result.css === output);
         })
 }
 
-test('postcss-import-object', t => {
-    return run(t, 'a { color: red; }', ':root { --primary-color: red; --font-family: Helvetica, sans; }\na { color: red; }');
+test('single object', t => {
+    const input = 'a { color: red; }';
+    const object = {
+        '--primary-color': 'red',
+    };
+    const output = ':root { --primary-color: red; }\na { color: red; }';
+    return run(t, input, output, object);
+});
+
+test('multiple object', t => {
+    const input = 'a { color: red; }';
+    const object = {
+        '--primary-color': 'red',
+        '--font-family': 'Helvetica, sans',
+        '--base-size': '14px'
+    };
+    const output = ':root { --primary-color: red; --font-family: Helvetica, sans; --base-size: 14px; }\na { color: red; }';
+    return run(t, input, output, object);
 });

@@ -1,10 +1,8 @@
 # postcss-import-object
 
-If you pass an object as an argument, a new ROOT selector will be created and injected into it.
+A [PostCSS](https://github.com/postcss/postcss) plugin that injects a JavaScript object as CSS custom properties into the `:root` selector.
 
 This makes it possible to manage variables with JavaScript when using CSS Variables.
-
-For example Immutable.js makes it easier to inject external objects into the CSS.
 
 ## Installation
 
@@ -12,22 +10,19 @@ For example Immutable.js makes it easier to inject external objects into the CSS
 npm install postcss-import-object --save-dev
 ```
 
-```bash
-yarn add postcss-import-object --dev
-```
-
 ## Usage
 
-```javascript
-var importObject = require('postcss-import-object')
+```typescript
+import postcss from 'postcss'
+import importObject from 'postcss-import-object'
 
 postcss([importObject({
-        '--foo': 'bar',
-        '--baz': 'foobar'
-    })])
-    .process(input)
+    '--foo': 'bar',
+    '--baz': 'foobar'
+})])
+    .process(input, { from: undefined })
     .then(result => {
-        // argument object is injected into a :root.
+        // The argument object is injected into :root.
         // :root {
         //     --foo: bar;
         //     --baz: foobar;

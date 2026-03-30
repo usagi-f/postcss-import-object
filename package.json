@@ -1,20 +1,28 @@
 {
   "name": "postcss-import-object",
-  "version": "1.0.1",
-  "main": "index.js",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "ava"
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
   },
   "author": "usagi-f",
   "license": "MIT",
   "keywords": [
     "postcss",
-    "postcss-plugin"
+    "postcss-plugin",
+    "css-variables"
   ],
   "dependencies": {
-    "postcss": "^6.0.6"
+    "postcss": "^8.4.0"
   },
   "devDependencies": {
-    "ava": "^0.20.0"
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
   }
 }
